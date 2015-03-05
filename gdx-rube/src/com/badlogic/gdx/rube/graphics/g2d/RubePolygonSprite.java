@@ -82,16 +82,19 @@ public class RubePolygonSprite extends PolygonSprite
 	
 	// non static stuff
 	private Body body;
-	
-	public RubePolygonSprite(Texture texture, float[] vertices) {
-		this(new PolygonRegion(new TextureRegion(texture), vertices), null);
-		
-	}
-	
-	public RubePolygonSprite(Texture texture, float[] vertices, Body body) {
-		this(new PolygonRegion(new TextureRegion(texture), vertices), body);
-		
-	}
+
+    public RubePolygonSprite(Texture texture, float[] vertices) {
+        // old API, missing triangles param
+//		this(new PolygonRegion(new TextureRegion(texture), vertices), null);
+        // fixes it by adding a null param
+        this(new PolygonRegion(new TextureRegion(texture), vertices, null), null);
+    }
+
+    public RubePolygonSprite(Texture texture, float[] vertices, Body body) {
+        // same as above, added null param to PolygonRegion
+        this(new PolygonRegion(new TextureRegion(texture), vertices, null), body);
+
+    }
 	
 	public RubePolygonSprite(PolygonRegion region, Body body) {
 		super(region);

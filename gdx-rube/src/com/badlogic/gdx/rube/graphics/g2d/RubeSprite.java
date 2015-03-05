@@ -94,19 +94,19 @@ public class RubeSprite extends Sprite {
 		offsetAngle = sprite.offsetAngle;
 		offsetPosition.set(sprite.offsetPosition);
 	}
-	
-	@Override
-	public void draw (SpriteBatch spriteBatch) {
-		updateBodyInfos();
-		super.draw(spriteBatch);
-	}
+    // changing from SpriteBatch, to Batch to fix override issue
+    @Override
+    public void draw (Batch spriteBatch) {
+        updateBodyInfos();
+        super.draw(spriteBatch);
+    }
+    // changing from SpriteBatch, to Batch to fix override issue
+    @Override
+    public void draw (Batch spriteBatch, float alphaModulation) {
 
-	@Override
-	public void draw (SpriteBatch spriteBatch, float alphaModulation) {
-		
-		updateBodyInfos();
-		super.draw(spriteBatch, alphaModulation);
-	}
+        updateBodyInfos();
+        super.draw(spriteBatch, alphaModulation);
+    }
 	
 	protected void updateBodyInfos() {
 		if(body != null) {
