@@ -1,3 +1,20 @@
+This is a modified version of cvayer's libgdx extension for RUBE.
+==========
+It has been modified to add gradle project files and the removal of the demos.
+
+`RubePolygonSprite` and `RubeSprite` have been modified to account for updated libgdx version.
+`RubePolygonSprite` is a dirty and untested change to two constructors where the `PolygonRegion` needed an additional parameter `short[] triangles` and I did not know where to find it. 
+
+Installation
+==========
+ - IntelliJ IDEA / Android Studio
+  - Import the project as a module using the `gdx-rube/build.gradle` file.
+  - In the root project's `build.gradle` file, add `compile project(':gdx-rube')` to the top of the dependencies stub in the 'core' project stub.
+
+
+
+Below is the original README.
+
 gdx-rube
 ==========
 This is a RUBE scene JSON loader and scene for libGdx.  It reads JSON data output by RUBE and creates and populates
