@@ -12,94 +12,124 @@ import com.badlogic.gdx.utils.ObjectMap;
  */
 public class RubeCustomProperty
 {
-	 private final ObjectIntMap<String> 		ints;
-	 private final ObjectMap<String, Float> 	floats;
-	 private final ObjectMap<String, String> 	strings;
-	 private final ObjectMap<String, Vector2> 	vectors;
-	 private final ObjectMap<String, Boolean> 	booleans;
-	 
-	 
-	 public RubeCustomProperty()
-	 {
-		 ints = new ObjectIntMap<String>(2);
-		 floats = new ObjectMap<String, Float>(2);
-		 strings = new ObjectMap<String, String>(2);
-		 vectors = new ObjectMap<String, Vector2>(2);
-		 booleans = new ObjectMap<String, Boolean>(2);
-	 }
-	 
-	 public void addInt(String name, int value) {
-		 ints.put(name, value);
-	 }
-	 
-	 public void addFloat(String name, float value) {
-		 floats.put(name, value);
-	 }
-	 
-	 public void addString(String name, String value) {
-		 strings.put(name, value);
-	 }
-	 
-	 public void addVec2(String name, Vector2 value) {
-		 vectors.put(name, value);
-	 }
-	 
-	 public void addBool(String name, boolean value) {
-		 booleans.put(name, value);
-	 }
-	 
-	 public int getInt(String name) {
-		 return ints.get(name, 0);
-	 }
-	 
-	 public float getFloat(String name) {
-		 return floats.get(name);
-	 }
-	 
-	 public String getString(String name) {
-		 return strings.get(name);
-	 }
-	 
-	 public Vector2 getVec2(String name) {
-		 return vectors.get(name);
-	 }
-	 
-	 public Boolean getBool(String name) {
-		 return booleans.get(name);
-	 }
-	 
-	 /**
-	  * @return the property value if found, the defaultValue if not
-	  */
-	 public int getInt(String name, int defaultValue) {
-		 return ints.get(name, defaultValue);
-	 }
-	 
-	 /**
-	  * @return the property value if found, the defaultValue if not
-	  */
-	 public float getFloat(String name, float defaultValue) {
-		 return floats.get(name, defaultValue);
-	 }
-	 
-	 /**
-	  * @return the property value if found, the defaultValue if not
-	  */
-	 public String getString(String name, String defaultValue) {
-		 return strings.get(name, defaultValue);
-	 }
-	 
-	 /**
-	  * @return the property value if found, the defaultValue if not
-	  */
-	 public Vector2 getVec2(String name, Vector2 defaultValue) {
-		 return vectors.get(name, defaultValue);
-	 }
-	 
-	 /**
-	  * @return the property value if found, the defaultValue if not
-	  */
-	 public Boolean getBool(String name, boolean defaultValue) {
-		 return booleans.get(name, defaultValue);
-	 }
+    private final ObjectIntMap<String> 		ints;
+    private final ObjectMap<String, Float> 	floats;
+    private final ObjectMap<String, String> 	strings;
+    private final ObjectMap<String, Vector2> 	vectors;
+    private final ObjectMap<String, Boolean> 	booleans;
+    private final ObjectMap<String, RubeColor> 	colors;
+
+
+    public RubeCustomProperty()
+    {
+        ints = new ObjectIntMap<String>(2);
+        floats = new ObjectMap<String, Float>(2);
+        strings = new ObjectMap<String, String>(2);
+        vectors = new ObjectMap<String, Vector2>(2);
+        booleans = new ObjectMap<String, Boolean>(2);
+        colors = new ObjectMap<String, RubeColor>(2);
+    }
+
+    public void addInt(String name, int value) {
+        ints.put(name, value);
+    }
+
+    public void addFloat(String name, float value) {
+        floats.put(name, value);
+    }
+
+    public void addString(String name, String value) {
+        strings.put(name, value);
+    }
+
+    public void addVec2(String name, Vector2 value) {
+        vectors.put(name, value);
+    }
+
+    public void addBool(String name, boolean value) {
+        booleans.put(name, value);
+    }
+
+    public void addColor(String name, RubeColor color){
+        colors.put(name, color);
+    }
+
+    public int getInt(String name) {
+        return ints.get(name, 0);
+    }
+
+    public float getFloat(String name) {
+        return floats.get(name);
+    }
+
+    public String getString(String name) {
+        return strings.get(name);
+    }
+
+    public Vector2 getVec2(String name) {
+        return vectors.get(name);
+    }
+
+    public Boolean getBool(String name) {
+        return booleans.get(name);
+    }
+
+    public RubeColor getColor(String name) {
+        return colors.get(name);
+    }
+
+    /**
+     * @return the property value if found, the defaultValue if not
+     */
+    public int getInt(String name, int defaultValue) {
+        return ints.get(name, defaultValue);
+    }
+
+    /**
+     * @return the property value if found, the defaultValue if not
+     */
+    public float getFloat(String name, float defaultValue) {
+        return floats.get(name, defaultValue);
+    }
+
+    /**
+     * @return the property value if found, the defaultValue if not
+     */
+    public String getString(String name, String defaultValue) {
+        return strings.get(name, defaultValue);
+    }
+
+    /**
+     * @return the property value if found, the defaultValue if not
+     */
+    public Vector2 getVec2(String name, Vector2 defaultValue) {
+        return vectors.get(name, defaultValue);
+    }
+
+    /**
+     * @return the property value if found, the defaultValue if not
+     */
+    public Boolean getBool(String name, boolean defaultValue) {
+        return booleans.get(name, defaultValue);
+    }
+
+    public RubeColor getColor(String name, RubeColor defaultColor) {
+        return colors.get(name, defaultColor);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+
+        sb.append(ints.toString()+" ");
+        sb.append(floats.toString()+" ");
+        sb.append(booleans.toString()+" ");
+        sb.append(strings.toString()+" ");
+        sb.append(vectors.toString()+" ");
+        sb.append(colors.toString()+" ");
+
+
+        return sb.toString();
+    }
 }

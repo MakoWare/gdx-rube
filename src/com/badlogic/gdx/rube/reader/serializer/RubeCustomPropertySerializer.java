@@ -1,11 +1,11 @@
 package com.badlogic.gdx.rube.reader.serializer;
 
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.rube.RubeColor;
 import com.badlogic.gdx.rube.RubeCustomProperty;
-import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Json;
-import com.badlogic.gdx.utils.JsonValue;
 import com.badlogic.gdx.utils.Json.ReadOnlySerializer;
+import com.badlogic.gdx.utils.JsonValue;
 
 /**
  * Serializer to read a {@link RubeCustomProperty} from a RUBE .json file.
@@ -45,6 +45,11 @@ public class RubeCustomPropertySerializer extends ReadOnlySerializer<RubeCustomP
 	        {
 	           custom.addBool(name, child.getBoolean("bool"));
 	        }
+			else if (child.get("color") != null)
+			{
+				custom.addColor(name, new RubeColor(child.get("color").asIntArray()));
+
+			}
 		}
 		
 	/*	RubeCustomProperty custom = null;
