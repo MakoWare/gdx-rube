@@ -9,3 +9,6 @@
 .gradle
 gradle-app.setting
 build/
+
+## IDEA
+gdx-rube.iml
